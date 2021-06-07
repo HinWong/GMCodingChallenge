@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+
+class MusicViewModel {
+    let resultsInformation: MusicResponse?
+    
+    init(musicResponse: MusicResponse) {
+        self.resultsInformation = musicResponse
+    }
+    
+    func getNumberOfResults() -> Int {
+        resultsInformation?.resultCount ?? 0
+    }
+    
+//    func getMusicDetailsVM() -> MusicDetailsVM {
+//        return MusicDetailsVM(musicDetails: <#T##Music#>)
+//    }
+    
+    
+}

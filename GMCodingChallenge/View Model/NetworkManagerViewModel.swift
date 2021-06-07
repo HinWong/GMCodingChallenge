@@ -13,13 +13,14 @@ import Foundation
 class NetworkManager {
     
     static let baseURL = URL(string: "https://itunes.apple.com/search")
+    static let urlQuerySearchName = "term"
     
     static func fetchMusic(searchTerm: String, completion: @escaping (Result<MusicResponse, MusicError>) -> Void) {
         
         // 1. build url
         guard let baseURL = baseURL else { return completion(.failure(.invalidURL)) }
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
-        urlComponents?.queryItems = [URLQueryItem(name: "term", value: searchTerm)]
+        urlComponents?.queryItems = [URLQueryItem(name: urlQuerySearchName, value: searchTerm)]
         guard let finalURL = urlComponents?.url else { return completion(.failure(.invalidURL)) }
         print(finalURL)
         
@@ -38,7 +39,7 @@ class NetworkManager {
             // 5. decode Data
             do {
                 let decodeData = try JSONDecoder().decode(MusicResponse.self, from: data)
-                print(decodeData)
+                //print(decodeData)
                 completion(.success(decodeData))
             } catch {
                 print(error, error.localizedDescription)

@@ -8,16 +8,22 @@
 import UIKit
 
 class MsuicTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var trackNameLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel!
+    @IBOutlet weak var primaryGenreNameLabel: UILabel!
+    @IBOutlet weak var trackPriceLabel: UILabel!
+    
+    var viewModel: MusicDetailsVM? {
+        didSet {
+            artistLabel.text = viewModel?.getArtistName()
+            trackNameLabel.text = viewModel?.getTrackName()
+            releaseDateLabel.text = viewModel?.getReleaseDate()
+            primaryGenreNameLabel.text = viewModel?.getPrimaryGenreName()
+            trackPriceLabel.text = "\(String(describing: viewModel?.getTrackPrice()))"
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    
 }

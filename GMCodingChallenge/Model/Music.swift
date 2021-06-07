@@ -15,8 +15,6 @@ struct MusicResponse: Codable {
 
 // MARK: - Result
 struct Music: Codable {
-//    let wrapperType: WrapperType
-//    let kind: Kind?
     let artistID, trackID: Int?
     let artistName: String
     let trackName, trackCensoredName: String?
@@ -25,19 +23,14 @@ struct Music: Codable {
     let artworkUrl30: String?
     let artworkUrl60, artworkUrl100: String
     let collectionPrice, trackPrice, collectionHDPrice, trackHDPrice: Double?
-    let releaseDate: Date
-    //let collectionExplicitness: Explicitness
-    //let trackExplicitness: Explicitness?
+    let releaseDate: String
     let trackTimeMillis: Int?
-    //let country: Country
-    //let currency: Currency
     let primaryGenreName: String
-    //let contentAdvisoryRating: ContentAdvisoryRating?
     let shortDescription, longDescription: String?
     let collectionID: Int?
     let collectionName, collectionCensoredName: String?
     let collectionViewURL, feedURL: String?
-    let trackRentalPrice, trackHDRentalPrice, trackCount: Int?
+    let trackRentalPrice, trackHDRentalPrice, trackCount: Double?
     let artworkUrl600: String?
     let genreIDS, genres: [String]?
     let discCount, discNumber, trackNumber: Int?
@@ -48,7 +41,6 @@ struct Music: Codable {
     let copyright, resultDescription: String?
 
     enum CodingKeys: String, CodingKey {
-        //case wrapperType, kind
         case artistID = "artistId"
         case trackID = "trackId"
         case artistName, trackName, trackCensoredName
@@ -76,33 +68,4 @@ struct Music: Codable {
     }
 }
 
-//enum Explicitness: String, Codable {
-//    case cleaned = "cleaned"
-//    case explicit = "explicit"
-//    case notExplicit = "notExplicit"
-//}
 
-//enum ContentAdvisoryRating: String, Codable {
-//    case clean = "Clean"
-//    case explicit = "Explicit"
-//    case nr = "NR"
-//}
-
-//enum Country: String, Codable {
-//    case usa = "USA"
-//}
-
-//enum Currency: String, Codable {
-//    case usd = "USD"
-//}
-
-//enum Kind: String, Codable {
-//    case featureMovie = "feature-movie"
-//    case podcast = "podcast"
-//    case song = "song"
-//}
-//
-//enum WrapperType: String, Codable {
-//    case audiobook = "audiobook"
-//    case track = "track"
-//}
